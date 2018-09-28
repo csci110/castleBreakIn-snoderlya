@@ -132,12 +132,20 @@ class Block extends Sprite {
         Block.blocksToDestry = Block.blocksToDestry + 1;
     }
     handleCollision() {
-        
+        game.removeSprite(this);
+        if (Block.blocksToDestry > 0) {
+            Block.blocksToDestry = Block.blocksToDestry - 1;
+        }
+        if (Block.blocksToDestry <= 0) {
+            game.end('Congratulations!\n\nPrincess Ann can continue her pursuit\nof the mysterious stranger!');
+        }
+    }
+
+    for (let i=0; i < 5; i + i+ 1) {
+        new Block(200 + i * 48, 200);
     }
 }
 
-for (let i = 0; i < 5; i = i + 1) {
-    new Block(200 + i * 48, 200);
-}
+    Block.blocksToDestry = 0;
 
-Block.blocksToDestry = 0;
+    let ExtraLifeBlock = new Block
